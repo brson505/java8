@@ -21,6 +21,13 @@ repositories {
 }
 
 dependencies {
+
+    compileOnly("org.projectlombok:lombok:1.18.12")
+    annotationProcessor("org.projectlombok:lombok:1.18.12")
+
+    testCompileOnly("org.projectlombok:lombok:1.18.12")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.12")
+
     // This dependency is used by the application.
     implementation("com.google.guava:guava:28.2-jre")
 

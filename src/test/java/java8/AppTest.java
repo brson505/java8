@@ -4,11 +4,38 @@
 package java8;
 
 import org.junit.jupiter.api.Test;
+
+import java.io.File;
+import java.io.FileFilter;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
     @Test void appHasAGreeting() {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    }
+
+    @Test void test1_7(){
+        File[] hiddenFiles = new File(".").listFiles(new FileFilter() {
+            @Override
+            public boolean accept(File file) {
+                return file.isHidden();
+            }
+        });
+
+        for(File file : hiddenFiles){
+            System.out.println("file:" + file);
+        }
+    }
+
+    @Test void test1_8(){
+        //java8 method reference ::
+        //람다
+        File[] hiddenFiles = new File(".").listFiles(File::isHidden);
+
+        for(File file : hiddenFiles){
+            System.out.println("file:" + file);
+        }
     }
 }
